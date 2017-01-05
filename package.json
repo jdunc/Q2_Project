@@ -1,0 +1,42 @@
+{
+  "name": "q2_project",
+  "version": "1.0.0",
+  "description": "This is a project for my sister to have her be more efficient. She wants a digital rolodex to mainly keep track of her clients to send mailers to. I will be making a clients, agents and inventory database to help her keep track of specific clients, birthday and license renewals of agents and select inventory within the office. I will be using Materialize as framework and Supertest, Mocha and Chai to run tests. I will also import in google maps as an external app to locate the clients she has.",
+  "main": "index.js",
+  "scripts": {
+    "knex": "knex",
+    "heroku-postbuild": "knex migrate:latest",
+    "nodemon": "nodemon server.js",
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SuzanneRashka/Q2_Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SuzanneRashka/Q2_Project/issues"
+  },
+  "homepage": "https://github.com/SuzanneRashka/Q2_Project#readme",
+  "dependencies": {
+    "bcrypt-as-promised": "^1.1.0",
+    "body-parser": "^1.15.2",
+    "chai": "^3.5.0",
+    "express": "^4.14.0",
+    "express-validation": "^1.0.1",
+    "joi": "9.0.4",
+    "knex": "^0.12.6",
+    "method-override": "^2.3.7",
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0",
+    "pg": "^6.1.2",
+    "supertest": "^2.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "mocha": "^3.2.0",
+    "supertest": "^2.0.1",
+    "chai": "^3.5.0"
+  }
+}
