@@ -1,22 +1,37 @@
 'use strict';
-
+//Ex[ress]
 const express = require('express');
 const app = express();
 const path = require('path');
 
-app.set('port', process.env.PORT || 3000);
-
+//Middlewares
 const bodyParser = require('body-parser');
+const methodOverride = require('method-override');
 
-const users = require('./routes/users');
+app.set('port', process.env.PORT || 3000);
+//app.set('views', __dirname + '/static');
+// app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'ejs');
+//Routes
+const register = require('./routes/register');
+const login = require('./routes/login');
 // const clients = require('./routes/clients');
 // const inventory = require('./routes/inventory');
 // const agents = require('./routes/agents');
 
 app.disable('x-powered-by');
-app.use(bodyParser.json());
 
-app.use(users);
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: false
+})); // this solves the problem of posting to terminal but not being able to post to browser
+
+app.use(express.static(path.join(__dirname, 'static')));
+
+
+app.use(register);
+app.use(login);
+
 // app.use(clients);
 // app.use(agents);
 // app.use(inventory);
