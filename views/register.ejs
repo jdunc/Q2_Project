@@ -13,11 +13,21 @@
 
 <body class="teal lighten-4">
     <div>
-        <h2 class="center card-panel grey lighten-1 black-text text-black"><a href="/login">EAT SHIT AND DIE!</a></h2>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Logo</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="/register">register Here!</a></li>
+                    <li><a href="badges.html">Components</a></li>
+                    <li><a href="collapsible.html">JavaScript</a></li>
+                </ul>
+            </div>
+        </nav>
     </div>
-
+    <div>
+    </div>
     <div class="row">
-        <form class="col s6 push-s3" id="regform" onSubmit="Javascript:sendFormData()" method="post">
+        <form class="col s6 push-s3" id="regform" action="/register" method="post">
             <div class="row">
                 <div class="input-field col s12">
                     <input id="first" type="text" name="first" class="validate">
@@ -53,26 +63,6 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script>
-        function sendFormData(event) {
-            //event.preventDefault();
-            // let formData = JSON.stringify($("#regform").serializeArray());
-            // console.log("HERE IS THE FORM DATA", formData)
-            var myURL = '/register';
-            var myData = {
-                name: 'test',
-                pass: 'passtest'
-            };
-            var success = function(data) {
-                console.log("POST got data:", data);
-            };
-            console.log("POSTING TO ", myURL)
-
-            $.post(myURL, myData, success);
-        }
-
-         $('#btn-register').click(sendFormData);
-    </script>
 </body>
 
 </html>
