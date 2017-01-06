@@ -13,7 +13,7 @@ const methodOverride = require('method-override'); //used to manipulate POST
 router.get('/register', (req, res, next) => {
     knex('users') //table
         .orderBy('id')
-        .then((user) => {
+        .then((register) => {
             res.render('register')
         })
 
@@ -32,7 +32,7 @@ router.post('/register', function(req, res) {
         })
         //.then(() => knex.raw("ALTER SEQUENCE users_id RESTART WITH 1"))
         .then(function() {
-            //res.redirect('views/login')
+            res.redirect('/login')
         })
 });
 

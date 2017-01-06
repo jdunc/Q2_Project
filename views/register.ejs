@@ -17,7 +17,7 @@
     </div>
 
     <div class="row">
-        <form class="col s6 push-s3" id="regform" action="/user" method="post">
+        <form class="col s6 push-s3" id="regform" onSubmit="Javascript:sendFormData()" method="post">
             <div class="row">
                 <div class="input-field col s12">
                     <input id="first" type="text" name="first" class="validate">
@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="col s6 push-s3">
-                <button id="btn-login" class="btn waves-effect waves-light">Register <i class="material-icons right">send</i>
+                <button id="btn-register" class="btn waves-effect waves-light">Register <i class="material-icons right">send</i>
                 </button>
             </div>
         </form>
@@ -55,10 +55,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script>
         function sendFormData(event) {
-            event.preventDefault();
+            //event.preventDefault();
             // let formData = JSON.stringify($("#regform").serializeArray());
             // console.log("HERE IS THE FORM DATA", formData)
-            var myURL = '/user';
+            var myURL = '/register';
             var myData = {
                 name: 'test',
                 pass: 'passtest'
@@ -71,21 +71,7 @@
             $.post(myURL, myData, success);
         }
 
-        // function sendFormData() {
-        //     let formData = JSON.stringify($("#regform").serializeArray());
-        //     $.ajax({
-        //         type: "POST",
-        //         data: regform,
-        //         success: function() {
-        //                 alert("ajax in post");
-        //             }
-        //             // error: function(textstatus) {
-        //             //     alert(textstatus);
-        //             // }
-        //     });
-        // }
-
-        // $('#btn-login').click(sendFormData);
+         $('#btn-register').click(sendFormData);
     </script>
 </body>
 

@@ -16,12 +16,13 @@ router.get('/login', (req, res, next) => {
 
 router.post('/login', function(req, res) {
     //console.log(req.body);
-    knex('users').select({ //// FIX THIS ((((((((((((()))))))))))))
+    knex('users').where({
             email: req.body.email,
             password: req.body.password
         })
         //.then(() => knex.raw("ALTER SEQUENCE users_id RESTART WITH 1"))
         .then(function() {
+            console.log('got it');
             //res.redirect('views/login')
         })
 });
