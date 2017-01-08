@@ -24,6 +24,7 @@ exports.up = function(knex) {
             .notNullable();
         table.string('notes')
             .notNullable().defaultTo('-');
+        table.foreign('user_id').references('users.id');
     });
 };
 

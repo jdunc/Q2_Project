@@ -15,6 +15,8 @@ app.set('view engine', 'ejs');
 //Routes
 const register = require('./routes/register');
 const login = require('./routes/login');
+const home = require('./routes/home');
+
 // const clients = require('./routes/clients');
 // const inventory = require('./routes/inventory');
 // const agents = require('./routes/agents');
@@ -31,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'static')));
 
 app.use(register);
 app.use(login);
+app.use(home);
 
 // app.use(clients);
 // app.use(agents);

@@ -26,17 +26,17 @@
     </div>
 
     <div class="row">
-        <form class="col s6 push-s3" id="loginform" method="post" action="/home">
+        <form class="col s6 push-s3" id="loginform" method="POST" action="/home">
             <div class="row">
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="email" type="email" class="validate" value="sam@sam.com">
+                    <input id="email" type="email" class="validate" name="email" value="sam@sam.com">
                     <label for="email">Email</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="password" type="password" class="validate" value="sam">
+                    <input id="password" type="password" class="validate" name="password" value="sam">
                     <label for="password">Password</label>
                 </div>
             </div>
@@ -48,35 +48,7 @@
         </form>
     </div>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script>
-    function sendFormData(event) {
-
-        var myURL = '/login';
-        var myData = {
-            email: 'test',
-            password: 'passtest'
-        };
-        var success = function(data) {
-            console.log("POST got data:", data);
-            window.location = data.redirect
-        };
-        console.log("POSTING TO ", myURL)
-
-        $.post(myURL, myData, success);
-    }
-
-         $('#btn-login').click(sendFormData);
-
-    // function loggedIn(req, res, next) {
-    //     if (req.body.email) {
-    //         next();
-    //     } else {
-    //         res.redirect('/login');
-    //     }
-    // }
-    //  $('#btn-login').click(loggedIn);
-
-     </script>
+<script src="js/login.js"></script>
 
 
     <script type="text/javascript" src="js/materialize.min.js"></script>
