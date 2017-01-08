@@ -15,46 +15,33 @@
 
 <body class="teal lighten-4">
     <div>
-        <nav>
+        <nav class="teal darken-2" role="navigation">
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo">Logo</a>
+                <a class="brand-logo">GP</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="/register">register Here!</a></li>
-                    <li><a href="badges.html">Components</a></li>
-                    <li><a href="collapsible.html">JavaScript</a></li>
                 </ul>
             </div>
         </nav>
     </div>
 
     <div class="row">
-        <form class="col s6 push-s3">
+        <form class="col s6 push-s3" id="loginform" method="post" action="/home">
             <div class="row">
-                <%# <div class="input-field col s12">
-                    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                    <label for="first_name">First Name</label>
-                </div>%>
-<!--</div>
-            <!<div class="row">
-                <div class="input-field col s12">
-                    <input id="user" type="text" class="validate">
-                    <label for="user">Name</label>
-                </div>
-            </div> -->
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="email" type="email" class="validate">
+                    <input id="email" type="email" class="validate" value="sam@sam.com">
                     <label for="email">Email</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="password" type="password" class="validate">
+                    <input id="password" type="password" class="validate" value="sam">
                     <label for="password">Password</label>
                 </div>
             </div>
             <div class="col s6 push-s3">
-                <button id="btn-login" class="btn waves-effect waves-light" type="submit" name="action">Log In<i class="material-icons right">send</i>
+                <button id="btn-login" class="btn waves-effect waves-light">Log In<i class="material-icons right">send</i>
                 </button>
             </div>
             </div>
@@ -71,13 +58,24 @@
         };
         var success = function(data) {
             console.log("POST got data:", data);
+            window.location = data.redirect
         };
         console.log("POSTING TO ", myURL)
 
         $.post(myURL, myData, success);
     }
 
-     $('#btn-login').click(sendFormData);
+         $('#btn-login').click(sendFormData);
+
+    // function loggedIn(req, res, next) {
+    //     if (req.body.email) {
+    //         next();
+    //     } else {
+    //         res.redirect('/login');
+    //     }
+    // }
+    //  $('#btn-login').click(loggedIn);
+
      </script>
 
 

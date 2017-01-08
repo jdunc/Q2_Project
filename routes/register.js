@@ -2,8 +2,8 @@
 
 const express = require('express');
 const router = express.Router();
-const knex = require('../knex')
-    //const bcrypt = require('bcrypt-as-promised');
+const knex = require('../knex');
+//const bcrypt = require('bcrypt-as-promised');
 
 const methodOverride = require('method-override'); //used to manipulate POST
 // const Joi = require('joi');
@@ -23,14 +23,12 @@ router.get('/register', (req, res, next) => {
 });
 
 router.post('/register', function(req, res) {
-    //console.log(req.body);
     knex('users').insert({ //table
             first: req.body.first,
             last: req.body.last,
             email: req.body.email,
             password: req.body.password
         })
-        //.then(() => knex.raw("ALTER SEQUENCE users_id RESTART WITH 1"))
         .then(function() {
             res.redirect('/login')
         })
