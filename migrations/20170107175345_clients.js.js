@@ -1,7 +1,7 @@
 'use strict';
 
 exports.up = function(knex) {
-    return knex.schema.createTable('users', (table) => {
+    return knex.schema.createTable('clients', (table) => {
         table.increments();
         table.string('name')
             .notNullable();
@@ -10,7 +10,7 @@ exports.up = function(knex) {
         table.string('email')
             .unique()
             .notNullable();
-        table.integer('phone' [12])
+        table.integer('phone')
             .notNullable();
         table.string('street')
             .notNullable();
@@ -23,12 +23,12 @@ exports.up = function(knex) {
         table.integer('zip')
             .notNullable();
         table.string('notes')
-            .text
+            .notNullable().defaultTo('-');
     });
 };
 
 exports.down = function(knex) {
-    return knex.schema.dropTable('users');
+    return knex.schema.dropTable('clients');
 };
 
 
